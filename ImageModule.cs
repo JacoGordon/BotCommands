@@ -44,10 +44,10 @@ public class ImageModule : ModuleBase<SocketCommandContext>
             [Summary("Compresses an image into emoji squares")]int maxWidth=30)
         {
             var attachments = Context.Message.Attachments;
-            // Create a new WebClient instance.
+            //Create a new WebClient instance.
             WebClient myWebClient = new WebClient();
             string url = attachments.ElementAt(0).Url;
-            // Download the resource and load the bytes into a buffer.
+            //Download the resource and load the bytes into a buffer.
             byte[] buffer = myWebClient.DownloadData(url);
             Bitmap img = ByteArrayToImage(buffer);
             string message = "`\n`";
@@ -146,7 +146,7 @@ public class ImageModule : ModuleBase<SocketCommandContext>
                     {
                         message = message.Insert(message.Length - 1,"🟪");   //purple_square
                     }
-                    else// (IsBetween(pixel.Hue, 0.9 * 359, 1.0*360))   //red
+                    else//(IsBetween(pixel.Hue, 0.9 * 359, 1.0*360))   //red
                     {
                         if (IsBetween(pixel.Saturation, 0.4 * 100, 1.0 * 100))
                         {
